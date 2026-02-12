@@ -115,7 +115,12 @@ export async function importBackupFromFile(file: File): Promise<{ exportedAt: st
   } catch {
     throw new Error("Invalid JSON file.");
   }
-  validateBackupV1(obj);
-  applyBackupData(obj.data);
-  return { exportedAt: obj.exportedAt };
+  // validateBackupV1(obj);
+  // applyBackupData(obj.data);
+  // return { exportedAt: obj.exportedAt };
+  validateBackupV1(obj);               // 先校验
+  const backup = obj as BackupSchemaV1; // ✅ 校验通过后，显式断言类型
+
+  applyBackupData(backup.data);        // ✅ 这里就不再是 unknown
+  return { exportedAt: backup.exportedAt };
 }
