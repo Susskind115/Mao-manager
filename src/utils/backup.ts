@@ -85,9 +85,16 @@ function isObject(x: unknown): x is Record<string, unknown> {
 function validateBackupV1(obj: unknown): asserts obj is BackupSchemaV1 {
   if (!isObject(obj)) throw new Error("Invalid backup: not an object.");
   if (obj.schemaVersion !== 1) throw new Error("Invalid backup: unsupported schemaVersion.");
-  if (!isObject(obj.data)) throw new Error("Invalid backup: missing data.");
-  const hasAnyKey = STORAGE_KEYS.some((k) => k in obj.data);
+  // if (!isObject(obj.data)) throw new Error("Invalid backup: missing data.");
+  // const hasAnyKey = STORAGE_KEYS.some((k) => k in obj.data);
+  // if (!hasAnyKey) throw new Error("Invalid backup: no recognized keys found.");
+  
+  const data = (obj as Record<string, unknown>).data;   // ✅ 先取出来
+  if (!isObject(data)) throw new Error("Invalid backup: missing data.");
+
+  const hasAnyKey = STORAGE_KEYS.some((k) => k in data); // ✅ 这里 data 一定是 object
   if (!hasAnyKey) throw new Error("Invalid backup: no recognized keys found.");
+
 }
 
 function applyBackupData(data: Record<string, unknown>) {
