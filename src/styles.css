@@ -1,0 +1,245 @@
+:root{
+  --bg:#0b1020;
+  --card:#121a33;
+  --text:#e9edf7;
+  --muted:#aab3d1;
+  --line:#273056;
+  --accent:#7aa2ff;
+  --danger:#ff6b6b;
+}
+
+*{ box-sizing:border-box; }
+html, body { height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 20% 0%, #15214d 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+a{ color:inherit; text-decoration:none; }
+h1{ margin: 8px 0 14px; font-size: 22px; }
+h2{ margin: 0 0 10px; font-size: 16px; }
+
+.appShell{ max-width: 980px; margin: 0 auto; padding: 18px 14px 28px; }
+.topBar{
+  display:flex; gap:14px; align-items:stretch; justify-content:space-between;
+  padding: 14px; border: 1px solid var(--line); border-radius: 14px;
+  background: rgba(18,26,51,.78); backdrop-filter: blur(10px);
+}
+.brand{ display:flex; gap:12px; align-items:center; min-width: 260px; }
+.logo{
+  width:42px; height:42px; display:grid; place-items:center;
+  border:1px solid var(--line); border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  font-size: 20px;
+}
+.brandTitle{ font-weight:700; }
+.brandSub{ color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+.stats{ display:flex; gap:10px; align-items:stretch; }
+.statCard{
+  width: 220px;
+  padding: 10px 12px;
+  border:1px solid var(--line); border-radius: 12px;
+  background: rgba(255,255,255,.04);
+}
+.statLabel{ color: var(--muted); font-size: 12px; }
+.statValue{ font-size: 18px; font-weight: 700; margin-top: 2px; }
+.statHint{ color: var(--muted); font-size: 12px; margin-top: 2px; }
+.progress{ height: 8px; background: rgba(255,255,255,.08); border-radius: 999px; overflow:hidden; margin-top: 8px; }
+.progressBar{ height: 100%; background: var(--accent); width: 0%; border-radius: 999px; }
+
+.nav{
+  display:flex; gap:10px; margin: 12px 2px;
+}
+.navItem{
+  padding: 9px 12px;
+  border:1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  color: var(--muted);
+  font-size: 13px;
+}
+.navItem.active{
+  color: var(--text);
+  border-color: rgba(122,162,255,.65);
+  box-shadow: 0 0 0 4px rgba(122,162,255,.12);
+}
+
+.content{ margin-top: 10px; }
+.footer{
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 10px 6px;
+}
+
+.page{ padding: 6px 2px; }
+
+.card{
+  border:1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(18,26,51,.68);
+  margin: 12px 0;
+}
+.callout{
+  border:1px dashed rgba(122,162,255,.55);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(122,162,255,.08);
+  color: var(--text);
+}
+
+.muted{ color: var(--muted); }
+.big{ font-size: 22px; font-weight: 800; margin-top: 4px; }
+
+.divider{ height:1px; background: var(--line); margin: 12px 0; }
+
+.list{ list-style:none; padding:0; margin:0; }
+.listRow{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 10px 6px;
+  border-top: 1px solid rgba(39,48,86,.65);
+}
+.listRow:first-child{ border-top: 0; }
+
+.checkboxRow{ display:flex; gap:10px; align-items:center; cursor:pointer; }
+.checkboxRow input{ width: 18px; height: 18px; }
+.taskTitle{ font-weight: 600; }
+
+.right{ display:flex; gap:10px; align-items:center; }
+.pill{
+  padding: 4px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.04);
+  font-size: 12px;
+}
+
+.row{ display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
+
+.form{
+  display:grid;
+  grid-template-columns: 1fr 160px;
+  gap: 10px 12px;
+}
+.form label{ display:flex; flex-direction:column; gap:6px; font-size: 12px; color: var(--muted); }
+.form input{
+  padding: 10px 10px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius: 10px;
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+}
+.form button{
+  grid-column: 1 / -1;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(122,162,255,.65);
+  background: rgba(122,162,255,.18);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+button{ font-family: inherit; }
+button:disabled{
+  opacity: .55;
+  cursor: not-allowed;
+}
+button.ghost, .ghost{
+  padding: 7px 10px;
+  border-radius: 10px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.03);
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.grid{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.rewardCard{
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  border-radius: 14px;
+  padding: 12px;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+.rewardTop{ display:flex; justify-content:space-between; align-items:center; gap: 10px; }
+.rewardName{ font-weight: 800; }
+.rewardActions{ display:flex; gap: 10px; align-items:center; justify-content:flex-end; }
+.rewardActions button{
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  cursor:pointer;
+}
+.rewardActions button.ghost{
+  background: rgba(255,255,255,.03);
+  color: var(--muted);
+}
+.tableWrap{ overflow:auto; }
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.table th, .table td{
+  text-align:left;
+  padding: 10px 8px;
+  border-top: 1px solid rgba(39,48,86,.65);
+}
+.table th{
+  color: var(--muted);
+  font-weight: 700;
+}
+
+@media (max-width: 900px){
+  .topBar{ flex-direction:column; }
+  .stats{ width:100%; }
+  .statCard{ width:100%; }
+  .grid{ grid-template-columns: 1fr; }
+  .form{ grid-template-columns: 1fr; }
+}
+
+.h3{ margin: 10px 0 8px; font-size: 14px; }
+.tag{
+  display:inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(122,162,255,.55);
+  background: rgba(122,162,255,.10);
+  color: var(--text);
+  font-size: 12px;
+}
+
+button.danger, .danger{
+  padding: 7px 10px;
+  border-radius: 10px;
+  border:1px solid rgba(255,107,107,.55);
+  background: rgba(255,107,107,.12);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.miniInput{
+  width: 100%;
+  padding: 8px 10px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius: 10px;
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+}
